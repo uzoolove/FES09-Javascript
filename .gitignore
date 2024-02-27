@@ -1,0 +1,9 @@
+ins
+.history
+**/node_modules
+
+# 오피스 임시파일
+~$*
+
+# macOS
+.DS_Store
