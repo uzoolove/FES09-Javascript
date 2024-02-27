@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Javascript Lab</title>
+<script src="../js/mylib.js"></script>
+
+<script>
+	window.onload = function(){
+		// 문서내의 모든 버튼을 클릭했을때 
+		// 각각 "btn-0 클릭", "btn-1 클릭", "btn-2 클릭" 
+		// ... "btn-n 클릭"을 콘솔에 출력하시오.
+    var btns = document.querySelectorAll('button');
+    // IIFE pattern
+		for(var i=0; i<btns.length; i++){
+      (function(i){
+        btns[i].addEventListener('click', function(){
+          console.log('IIFE btn-' + i + ' 클릭');
+        });
+      })(i);
+		}
+
+    // ECMA5 forEach()
+    btns.forEach(function(elem, i){
+      elem.addEventListener('click', function(){
+        console.log('forEach() btn-' + i + ' 클릭');
+      });
+    });
+
+    // MyLib.each()
+    MyLib.each(btns, function(i, elem){
+      this.addEventListener('click', function(){
+        console.log('MyLib.each() btn-' + i + ' 클릭');
+      });
+    });
+
+    // ECMA6 let
+    for(let i=0; i<btns.length; i++){
+      btns[i].addEventListener('click', function(){
+        console.log('let btn-' + i + ' 클릭');
+      });
+		}
+	};
+</script>
+</head>
+<body>
+	<h1>즉시 실행 함수</h1>
+  <button>버튼</button>
+  <button>버튼</button>
+  <button>버튼</button>
+</body>
+</html>

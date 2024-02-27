@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Javascript Lab</title>
+<link rel="shortcut icon" href="../../favicon.ico">
+<script src="https://unpkg.com/axios@1.5.1/dist/axios.min.js"></script>
+<script>
+	window.onload = function(){
+    axios.defaults.baseURL = 'http://localhost:33080';
+    axios.defaults.timeout = 2500;
+    axios.defaults.headers.common['Authorization'] = 'abc123';
+
+    // 요청 인터셉터 추가하기
+    axios.interceptors.request.use(function(config) {
+      console.log('요청 interceptor: 요청이 전달되기 전에 수행할 작업');
+      console.log('config', config);
+      return config;
+    }, function (err) {
+      console.log('요청 interceptor: 요청 전달 실패.', err);
+      return Promise.reject(err);
+    });
+
+    // 응답 인터셉터 추가하기
+    axios.interceptors.response.use(function (response) {
+      console.log('응답 interceptor: 정상. 2xx 응답 받음.', response);
+      return response;
+    }, function (err) {
+      console.log('응답 interceptor: 에러. 2xx 외의 응답 받음.', err);
+      return Promise.reject(err);
+    });
+
+    document.querySelector('button').addEventListener('click', async function(){
+      try{
+        let response = await axios('/time?msg=get-1');
+        append(response.data);
+
+        response = await axios('/timejson', {
+          method: 'POST',
+          data: {msg: 'post-1'}
+        });
+        appendJson(response.data);
+
+        response = await axios.post('/timejson', {msg: 'post-2'});
+        appendJson(response.data);
+      }catch(err){
+        console.error(err);
+        if(err.response){
+          console.log('요청이 전송되었고, 서버는 2xx 외의 상태 코드로 응답함');
+          console.log('err.response', err.response);
+        } else if (err.request) { // request -> XHR
+          console.log('요청이 전송되었지만 응답이 수신되지 않음');
+          console.log('err.request', err.request);
+        } else {
+          console.log('서버에 요청하지 못함');
+          console.log('err.message', err.message);
+        }
+        console.log('err.config', err.config);
+      }
+    });
+    
+  }
+
+  function append(str){
+		document.querySelector('#result').innerHTML += str + '<br>';
+	}
+	
+	function appendJson(obj){
+		document.querySelector('#result').innerHTML += obj.msg + ' ' + obj.time + '<br>';
+	}
+</script>
+</head>
+<body>
+	<h1>AJAX 통신(axios 심화)</h1>
+	<input type="text">
+	<button>서버시간요청</button>
+	<div id="result"></div>
+</body>
+</html>

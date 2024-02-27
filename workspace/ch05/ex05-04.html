@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Javascript Lab</title>
+<link rel="shortcut icon" href="../../favicon.ico">
+<script>
+	window.onload = function(){
+		document.querySelector('button').onclick = function(){
+      getTime();
+      getTimeJson();
+    };
+	};
+  
+  // method: GET
+  // url: /time
+  // querystring: msg=time
+  // 서버의 응답 포맷: Text
+	async function getTime(){
+    try{
+      const response = await fetch('http://localhost:33080/time?msg=time');
+      if(response.ok){
+        const data = await response.text();
+        append(data);
+      }else{
+        console.error(response);
+      }
+    }catch(err){
+      console.error(err);
+    }
+	};
+
+  // method: POST
+  // url: /timejson
+  // body: {msg: 'timejson'}
+  // 서버의 응답 포맷: JSON
+	async function getTimeJson(){
+    try{
+      const body = {msg: 'timejson'};
+      const response = await fetch('http://localhost:33080/timejson', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(body)
+      });
+      if(response.ok){
+        const data = await response.json();
+        appendJson(data);
+      }else{
+        console.error(response);
+      }
+    }catch(err){
+      console.error(err);
+    }
+  }
+  
+	function append(str){
+		document.querySelector('#result').innerHTML += str + '<br>';
+	}
+	
+	function appendJson(obj){
+		document.querySelector('#result').innerHTML += obj.msg + ' ' + obj.time + '<br>';
+	}
+</script>
+</head>
+<body>
+	<h1>AJAX 통신(Fetch API 사용)</h1>
+	<input type="text">
+	<button>서버시간요청</button>
+	<div id="result"></div>
+</body>
+</html>

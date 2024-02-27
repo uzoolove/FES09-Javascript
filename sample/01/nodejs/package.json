@@ -1,0 +1,18 @@
+{
+  "name": "time-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "hellonode.js",
+  "scripts": {
+    "start": "node ./webserver",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body": "^5.1.0",
+    "moment": "^2.29.4",
+    "node-static": "^0.7.11"
+  }
+}
