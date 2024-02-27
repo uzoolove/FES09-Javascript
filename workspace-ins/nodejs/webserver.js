@@ -6,7 +6,13 @@ var jsonBody = require('body/json');
 var moment = require('moment');
 
 var home = path.join(__dirname, '..');
-var file = new nodeStatic.Server(home);
+var file = new nodeStatic.Server(home, {
+  headers: {
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Methods': 'GET',
+    'Access-Control-Allow-Headers': 'Content-Type'
+  }
+});
 http.createServer(function (req, res) {
   var parseUrl = url.parse(req.url, true);
   switch(parseUrl.pathname){

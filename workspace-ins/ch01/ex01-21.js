@@ -79,10 +79,11 @@ function useState(initialValue){
 
 console.log(count);
 setCount(count+1);
+console.log(count);
 
 // react에서 사용(props)
 var TodoList = function({userId: _id, page}){
-  fetch('http://localhost:3000/dummy/todolist.json?userId=' + _id + '&page=' + page).then(function(res){
+  fetch('./dummy/todolist.json?userId=' + _id + '&page=' + page).then(function(res){
     return res.json();
   }).then(function(data){
     console.log(data);
