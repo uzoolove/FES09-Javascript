@@ -10,12 +10,13 @@
 
     // 브라우저의 파싱이 완료되고 페이지 로딩이 끝나면 호출
     window.onload = function(){
-      // TODO: DOM 단원에서 자세히 확인
       var btn = document.querySelector('button');
       btn.onclick = function(event){
-        event = event || window.event;
         console.log('버튼 클릭.', event.clientX);
       };
+      btn.addEventListener('click', function(event){
+        console.log('버튼 클릭.', event.clientX);
+      });
     };
 
   </script>
