@@ -60,11 +60,6 @@
 	* 복사할 적당한 폴더 선택 후 Select as Repository Destination 선택
 	* Open 선택
 
-### 실습 준비
-* sample 폴더 복사
-  - sample/01/workspace 폴더를 복사해서 프로젝트 루트에 붙여넣기
-* 완성된 강사의 코드는 workspace-ins 폴더에서 확인
-
 ### 웹 서버 구동
 1. Live Server 설치
 	- VS Code Extention에서 live server 검색 후 설치
