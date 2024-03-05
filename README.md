@@ -1,5 +1,7 @@
 # 멋쟁이 사자처럼 Front-End School 9기: JavaScript 프로그래밍
-* GitHub URL: https://github.com/uzoolove/FES09-Javascript
+GitHub Page에서 보기: https://uzoolove.github.io/FES09-Javascript
+소스 코드(GitHub): https://github.com/uzoolove/FES09-Javascript
+예제 테스트(GitHub Page): https://uzoolove.github.io/FES09-Javascript/workspace-ins
 
 ## 수업 진도(예정)
 ### 2월 29(목)
@@ -18,6 +20,7 @@
 
 ### 3월 5(화)
 #### 1강 자바스크립트 데이터 타입
+* 배열
 * 함수(기본)
 * 기본 데이터 타입과 참조형 데이터 타입의 차이
 * 전역변수, 지역변수
@@ -31,6 +34,30 @@
   - 기본값 매개변수
   - 나머지 매개변수
   - 전개 연산자
+
+### 3월 7(목)
+#### 2강 자바스크립트 함수
+* 일급 객체
+* 함수를 생성하는 4가지 방법
+  - 선언문
+  - 표현식
+  - Function 생성자 함수
+  - 화살표 함수
+
+### 3월 8(목)
+#### 2강 자바스크립트 함수
+* 호이스팅
+* 매개변수와 인자의 수
+* 암묵적 매개변수
+
+### 3월 9(금)
+#### 2강 자바스크립트 함수
+* 함수를 호출하는 4가지 방법
+  - 일반적인 함수 호출
+  - 객체의 메서드로 호출
+  - call(), apply()
+  - 생성자 함수
+
 
 
 
@@ -59,11 +86,6 @@
 	* <nohyper>https</nohyper>://github.com/uzoolove/FES09-Javascript.git 입력
 	* 복사할 적당한 폴더 선택 후 Select as Repository Destination 선택
 	* Open 선택
-
-### 실습 준비
-* sample 폴더 복사
-  - sample/01/workspace 폴더를 복사해서 프로젝트 루트에 붙여넣기
-* 완성된 강사의 코드는 workspace-ins 폴더에서 확인
 
 ### 웹 서버 구동
 1. Live Server 설치
