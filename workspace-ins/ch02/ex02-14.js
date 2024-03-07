@@ -4,7 +4,7 @@ function returnName(){
 }
 
 // 일반적인 함수로 호출(함수명())
-console.log(returnName());
+console.log(returnName());  // global
 
 // 객체의 메소드로 호출(객체.메소드명())
 var kim = new Object();
@@ -18,9 +18,9 @@ var lee = {
   getName: returnName
 };
 
-console.log(kim.age, kim.getName());
-console.log(lee.age, lee.getName());
+console.log(kim.age, kim.getName());  // 30 김철수
+console.log(lee.age, lee.getName());  // 35 이영희
 
-console.log(kim.getName(), kim.getName.call(window));
-console.log(lee.getName(), lee.getName.apply(kim));
-console.log(returnName(), returnName.call(lee));
+console.log(kim.getName(), kim.getName.call(window)); // 김철수, global
+console.log(lee.getName(), lee.getName.apply(kim)); // 이영희, 김철수
+console.log(returnName(), returnName.call(lee));  // 반성문, 이영희
