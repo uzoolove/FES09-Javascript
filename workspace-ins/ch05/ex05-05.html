@@ -34,7 +34,7 @@
 	async function getTimeJson(){
     try{
       const body = {msg: 'timejson'};
-      const response = await axios.post('http://localhost:33080/timejson', body);
+      const response = await axios.post('https://todo-api.frontendschool.shop/api/todolist', body);
       const data = response.data;
       appendJson(data);
     }catch(err){

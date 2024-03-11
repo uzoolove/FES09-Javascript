@@ -37,7 +37,7 @@
 	async function getTimeJson(){
     try{
       const body = {msg: 'timejson'};
-      const response = await fetch('http://localhost:33080/timejson', {
+      const response = await fetch('https://todo-api.frontendschool.shop/api/todolist', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(body)
