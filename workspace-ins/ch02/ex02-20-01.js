@@ -53,7 +53,7 @@ var reaminList = todolist.map((todo) => {
     return todo;
   }
 }).filter(todo => {
-  return todo?.done;
+  return todo ? true : false;
 });
 console.log('map() 남은 할일 목록', reaminList);
 
@@ -62,7 +62,7 @@ var reaminCount = todolist.reduce((acc, todo) => acc + (todo.done ? 0 : 1), 0);
 console.log('reduce() 남은 할일 수', reaminCount);
 
 // find() _id=2인 할일
-var todo = todolist.find(todo => todo._id===2 );
+var todo = todolist.find(todo => todo._id===2);
 console.log('find() _id=2인 할일', todo);
 
 // find() _id=3인 할일의 index
