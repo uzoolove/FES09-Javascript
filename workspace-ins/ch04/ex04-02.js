@@ -1,22 +1,20 @@
 var Counter = function(){
-	var count = 0;
+	this.count = 0;
 	this.ride = function(){
-    if(count < 40){
-      count++;
+    if(this.count < 40){
+      this.count++;
     }else{
       console.log('정원 초과!');
     }
 	};
 	this.getCount = function(){
-		return count;
+		return this.count;
 	};
 };
 
 var c = new Counter();
 c.ride();
 c.ride();
-
-// c.count += 40;
 
 for(var i=0; i<40; i++){
   c.ride();
