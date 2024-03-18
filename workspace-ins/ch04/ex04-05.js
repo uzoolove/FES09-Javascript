@@ -1,4 +1,3 @@
-// ex02-19.js 복사
 // 지정한 수가 소수인지 여부를 반환
 var isPrime = function(num){
   // 소수 판별 코드
