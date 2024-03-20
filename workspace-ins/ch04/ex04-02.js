@@ -1,14 +1,14 @@
 var Counter = function(){
-	this.count = 0;
+	let count = 0;
 	this.ride = function(){
-    if(this.count < 40){
-      this.count++;
+    if(count < 40){
+      count++;
     }else{
       console.log('정원 초과!');
     }
 	};
 	this.getCount = function(){
-		return this.count;
+		return count;
 	};
 };
 
@@ -19,5 +19,7 @@ c.ride();
 for(var i=0; i<40; i++){
   c.ride();
 }
+
+// c.count += 40;
 
 console.log('전체 탑승자', c.getCount());
